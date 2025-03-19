@@ -1,7 +1,6 @@
 import pandas as pd
 import json
 import streamlit as st
-import folium
 from streamlit_folium import st_folium
 from folium import plugins
 import matplotlib.pyplot as plt
@@ -107,7 +106,7 @@ station1 = load_stations()
 if "pagina" in locals() and pagina == "Kaart":
     @st.cache_resource
     def create_m():
-        m = folium.Map(location=[51.508586, -0.104444], zoom_start=9)
+        m = st_folium.Map(location=[51.508586, -0.104444], zoom_start=9)
         plugins.Draw().add_to(m)
 
         station1 = load_stations()
@@ -117,7 +116,7 @@ if "pagina" in locals() and pagina == "Kaart":
             lat, lon = coords[1], coords[0]
             color = row.get("properties_marker-color", "gray")  # Haal de kleur op uit de kolom 'properties_marker-color'
 
-            folium.CircleMarker(
+            st_folium.CircleMarker(
                 location=[lat, lon],
                 radius=8,
                 color=color,
@@ -173,7 +172,7 @@ if "pagina" in locals() and pagina == "Kaart":
 
 # Creëer de kaart
     def create_p():
-        p = folium.Map(location=[51.5074, -0.1278], zoom_start=10)  # Londen coördinaten
+        p = st_folium.Map(location=[51.5074, -0.1278], zoom_start=10)  # Londen coördinaten
 
     # Bepaal de min/max van de geselecteerde kolom
         vmin = 0
@@ -207,7 +206,7 @@ if "pagina" in locals() and pagina == "Kaart":
             lon, lat = coords[0], coords[1]
 
         # Voeg de marker toe aan de kaart
-            folium.CircleMarker(
+            st_folium.CircleMarker(
                 location=[lat, lon],
                 radius=8,
                 color=color,
