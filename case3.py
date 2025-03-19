@@ -24,7 +24,7 @@ def load_data_metro():
     bez_2016 = pd.read_csv("2016_Entry_Exit.csv", dtype=str, low_memory=False)
     return bez_2007, bez_2008, bez_2009, bez_2010, bez_2011, bez_2012, bez_2013, bez_2014, bez_2015, bez_2016
 
-bez_2007, bez_2008, bez_2009, bez_2010, bez_2011, bez_2012, bez_2013, bez_2014, bez_2015, bez_2016, bez_2017, bez_2018, bez_2019, bez_2020, bez_2021 = load_data_metro()
+bez_2007, bez_2008, bez_2009, bez_2010, bez_2011, bez_2012, bez_2013, bez_2014, bez_2015, bez_2016 = load_data_metro()
 
 @st.cache_data
 def load_data_fiets():
